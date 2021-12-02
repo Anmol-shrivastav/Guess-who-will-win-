@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang=en>
+   <head>
+     <title>Guess Game</title>
+	 <link rel="icon" src="logo.jpg">
+	<style type="text/css"> 
+	 body {
+        margin: 0;
+        padding: 0;
+        background-color: #17a2b8;
+    }
+	 .container {
+	    margin: auto;
+		padding: 10px;
+		text-align:center;
+    }
+	 h1 {
+	   color: #ffc107;
+       text-shadow: 1px 1px #f8f9fa;
+	   font-weight:800;
+       font-size:60px;
+    }
+    .diceinline {
+       display: inline-block;
+	   padding: 30px 70px;
+	   text-align: center;
+    }
+    .btn {
+       padding: 15px 40px;
+	   background-color: #28a745;
+	   border: 1px solid black;
+	   color: white;
+	   text-size: 20px;
+    }
+    .btn:hover {
+        background-color: green;
+    }
+	</style>
+   </head>
+   <body>
+      <div class="container">
+	    <h1 id="result">Guess Who Will Won!!</h1> 
+		<div class="diceinline">
+		  <p>Player 1</p>
+		  <img src="dice1.png" id="diceplayer1">
+		</div>
+		<div class="diceinline">
+		  <p>Player 2</p>
+		  <img src="dice1.png" id="diceplayer2">
+		</div>
+		
+		<div>
+		  <input type="button" class="btn" value="Roll" onclick="diceroll()" id="roll">
+		</div>
+	  </div>  <!-- container div -->
+	  
+	  <script type="text/javascript">
+	     function diceroll() {
+		    const play1 = Math.floor(Math.random() * 6) + 1;
+			const play1dice = "dice"+play1+".png";
+			    document.getElementById('diceplayer1').setAttribute('src',play1dice);
+				
+		    const play2 = Math.floor(Math.random() * 6)+1;
+			const play2dice = "dice"+play2+".png";
+			    document.getElementById('diceplayer2').setAttribute('src',play2dice);
+				
+				if(play1>play2) {
+				   document.getElementById('result').innerHTML="Player 1 Won!!";
+				} else if(play1<play2) {
+				     document.getElementById('result').innerHTML="Player 2 won!!";
+				} else {
+				     document.getElementById('result').innerHTML = "Draw!!";
+				}
+				
+		 }
+	  </script>
+   </body>
+</html>
